@@ -1,0 +1,50 @@
+Service:
+  DeployType: ros
+  DeployMetadata:
+    SupplierDeployMetadata:
+      SupplierTemplateConfigs:
+        - Name: 选择ECS实例（Linux）
+          Url: ros_templates/template-select-ecs.yaml
+          PredefinedParameters: []
+        - Name: 新建ECS实例
+          Url: ros_templates/template-create-ecs.yaml
+          PredefinedParameters: []
+    TemplateConfigs:
+      - Name: 选择ECS实例（Linux）
+        Url: ros_templates/template-select-ecs.yaml
+        PredefinedParameters: []
+        DeployScene: ECS
+      - Name: 新建ECS实例
+        Url: ros_templates/template-create-ecs.yaml
+        PredefinedParameters: []
+        DeployScene: ECS
+    NetworkMetadata:
+      EnablePrivateVpcConnection: false
+      EnableReversePrivateVpcConnection: false
+    ServiceInstanceNameRule:
+      Prefix: QoderCLI-
+      UseDefaultValue: false
+  OperationMetadata:
+    SupportBackup: false
+    PrometheusConfigMap:
+      选择ECS实例（Linux）:
+        EnablePrometheus: false
+      新建ECS实例:
+        EnablePrometheus: false
+  ServiceType: private
+  ServiceInfo:
+    - Agreements: []
+      Image: resources/icons/service_logo.png
+      Locale: zh-CN
+      Name: Qwen Code 运行环境
+      ShortDescription: 这是 Qwen 的 AI 编码助手，运行在你的终端中，帮助你比以往更快地将想法转化为代码。
+      Softwares: []
+    - Agreements: []
+      Image: resources/icons/service_logo.png
+      Locale: en-US
+      Name: Qwen Code RunTime
+      ShortDescription: 这是 Qwen 的 AI 编码助手，运行在你的终端中，帮助你比以往更快地将想法转化为代码。
+      Softwares: []
+  ShareType: Public
+  ApprovalType: Manual
+Artifact: {}
